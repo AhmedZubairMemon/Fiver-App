@@ -1,0 +1,151 @@
+.messages {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 1400px;
+    padding: 50px 0px;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: #1dbf73;
+        color: white;
+        font-weight: 500;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        height: 100px;
+        th {
+          text-align: left;
+        }
+        td {
+          padding: 10px;
+
+          &:first-child {
+            font-weight: 500;
+          }
+          
+          &:nth-child(2),
+          &:nth-child(3) {
+            color: gray;
+          }
+        }
+
+        button {
+          background-color: #1dbf73;
+          color: white;
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+        }
+
+        &.active {
+          background-color: #1dbf730f;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .messages .container {
+    width: 95%;
+    padding: 40px 0;
+  }
+
+  .messages table tr {
+    height: 80px;
+  }
+
+  .messages table td,
+  .messages table th {
+    font-size: 15px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 992px) {
+  .messages .container {
+    width: 90%;
+    padding: 30px 0;
+  }
+
+  .messages table {
+    font-size: 14px;
+  }
+
+  .messages table tr {
+    height: 70px;
+  }
+
+  .messages table button {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .messages .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .messages .title h1 {
+    font-size: 20px;
+  }
+
+  .messages table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .messages table tr {
+    height: 60px;
+  }
+
+  .messages table td,
+  .messages table th {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .messages table button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .messages .container {
+    padding: 10px;
+  }
+
+  .messages .title h1 {
+    font-size: 18px;
+  }
+
+  .messages table td,
+  .messages table th {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .messages table button {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .messages table tr {
+    height: 55px;
+  }
+}

@@ -1,0 +1,188 @@
+.add {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 1400px;
+    padding: 50px 0px;
+
+    h1 {
+      width: max-content;
+      margin-bottom: 30px;
+      color: gray;
+      font-weight: 300;
+    }
+
+    .sections {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+
+      label {
+        color: gray;
+        font-size: 18px;
+      }
+
+      .info,
+      .details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+
+        input,
+        select,
+        textarea {
+          padding: 20px;
+        }
+
+        .images{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .imagesInputs{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+        button {
+          border: none;
+          padding: 20px;
+          color: white;
+          font-weight: 500;
+          font-size: 18px;
+          background-color: #1dbf73;
+          cursor: pointer;
+        }
+
+        .add{
+          display: flex;
+          justify-content: space-between;
+
+          input{
+            width: 80%;
+          }
+        }
+
+        .addFeatures{
+          display: flex;
+          gap: 20px;
+        }
+         .X{
+            height: 30px;
+            font-size: 12px;
+            font-weight: 400;
+            background-color: transparent;
+            color: red;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+          }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .add {
+    .container {
+      width: 95%;
+      .sections {
+        gap: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .add {
+    .container {
+      padding: 30px 0;
+      .sections {
+        flex-direction: column;
+        gap: 40px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      label {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .add {
+    .container {
+      width: 100%;
+      padding: 20px;
+      .sections {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 15px;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 16px;
+      }
+
+      .images {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .add {
+    .container {
+      padding: 10px;
+      h1 {
+        font-size: 20px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+      }
+
+      button {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .imagesInputs {
+        width: 100%;
+      }
+
+      .add {
+        flex-direction: column;
+        gap: 10px;
+        input {
+          width: 100%;
+        }
+        button {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}

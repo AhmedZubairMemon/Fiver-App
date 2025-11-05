@@ -1,0 +1,165 @@
+.myGigs {
+  display: flex;
+  justify-content: center;
+  color: #555;
+
+  .container {
+    width: 1400px;
+    padding: 50px 0px;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: #1dbf73;
+        color: white;
+        font-weight: 500;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        height: 50px;
+        th {
+          text-align: left;
+        }
+        td {
+
+          sup{
+            font-size: 12px;
+          }
+          
+          .image {
+            width: 50px;
+            height: 25px;
+            object-fit: cover;
+          }
+
+          .delete {
+            width: 20px;
+            cursor: pointer;
+          }
+
+        }
+        &:nth-child(even) {
+          background-color: #1dbf730f;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .myGigs .container {
+    width: 95%;
+    padding: 40px 0;
+  }
+
+  .myGigs table tr {
+    height: 60px;
+  }
+
+  .myGigs table td,
+  .myGigs table th {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .myGigs .title button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .myGigs .container {
+    width: 90%;
+    padding: 30px 0;
+  }
+
+  .myGigs table {
+    font-size: 14px;
+  }
+
+  .myGigs table tr {
+    height: 55px;
+  }
+
+  .myGigs .title h1 {
+    font-size: 22px;
+  }
+
+  .myGigs table td img.image {
+    width: 45px;
+    height: 25px;
+  }
+
+  .myGigs table td img.delete {
+    width: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .myGigs .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .myGigs .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .myGigs table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .myGigs table th,
+  .myGigs table td {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .myGigs .title button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .myGigs .container {
+    padding: 10px;
+  }
+
+  .myGigs .title h1 {
+    font-size: 18px;
+  }
+
+  .myGigs table th,
+  .myGigs table td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .myGigs table td img.image {
+    width: 40px;
+    height: 22px;
+  }
+
+  .myGigs table td img.delete {
+    width: 16px;
+  }
+
+  .myGigs .title button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}

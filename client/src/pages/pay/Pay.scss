@@ -1,0 +1,129 @@
+.pay {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f6f9fc, #e9f5ff);
+  padding: 40px;
+
+  .StripeElement {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      background-color: #1dbf73;
+      color: white;
+      border: none;
+      padding: 14px 0;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        background-color: #17a864;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    padding: 20px;
+
+    .StripeElement {
+      width: 100%;
+      padding: 15px;
+    }
+
+    form button {
+      font-size: 16px;
+      padding: 12px 0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .pay {
+    padding: 30px;
+
+    .StripeElement {
+      width: 350px;
+      padding: 18px;
+    }
+
+    form button {
+      font-size: 17px;
+      padding: 13px 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pay {
+    flex-direction: column;
+    padding: 25px;
+
+    .StripeElement {
+      width: 100%;
+      max-width: 400px;
+      padding: 16px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    form button {
+      font-size: 16px;
+      padding: 12px 0;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pay {
+    padding: 15px;
+
+    .StripeElement {
+      width: 100%;
+      padding: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    form button {
+      font-size: 15px;
+      padding: 10px 0;
+    }
+  }
+}

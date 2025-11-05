@@ -1,0 +1,158 @@
+.orders {
+  display: flex;
+  justify-content: center;
+  color: #555;
+
+  .container {
+    width: 1400px;
+    padding: 50px 0px;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: #1dbf73;
+        color: white;
+        font-weight: 500;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        height: 50px;
+        th {
+          text-align: left;
+        }
+        td {
+          
+          sup{
+            font-size: 12px;
+          }
+
+          .image {
+            width: 50px;
+            height: 25px;
+            object-fit: cover;
+          }
+
+          .message {
+            width: 25px;
+            cursor: pointer;
+          }
+        }
+        &:nth-child(even) {
+          background-color: #1dbf730f;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .orders .container {
+    width: 95%;
+    padding: 40px 0;
+  }
+
+  .orders table tr {
+    height: 60px;
+  }
+
+  .orders table td,
+  .orders table th {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .orders .title h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 992px) {
+  .orders .container {
+    width: 90%;
+    padding: 30px 0;
+  }
+
+  .orders table {
+    font-size: 14px;
+  }
+
+  .orders table tr {
+    height: 55px;
+  }
+
+  .orders table td img.image {
+    width: 45px;
+    height: 25px;
+  }
+
+  .orders table td img.message {
+    width: 20px;
+  }
+
+  .orders .title h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .orders .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .orders .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .orders table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .orders table th,
+  .orders table td {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .orders .title h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .orders .container {
+    padding: 10px;
+  }
+
+  .orders .title h1 {
+    font-size: 18px;
+  }
+
+  .orders table th,
+  .orders table td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .orders table td img.image {
+    width: 40px;
+    height: 22px;
+  }
+
+  .orders table td img.message {
+    width: 18px;
+  }
+}

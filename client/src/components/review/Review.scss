@@ -1,0 +1,161 @@
+ .review {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin: 20px 0px;
+          .user {
+            display: flex;
+            align-items: center;
+            .pp {
+              height: 50px;
+              width: 50px;
+              border-radius: 50%;
+            }
+
+            .country {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              color: gray;
+
+              img {
+                width: 20px;
+              }
+            }
+          }
+
+          .stars {
+            display: flex;
+            gap: 5px;
+
+            img {
+              height: 14px;
+              width: 14px;
+            }
+
+            span {
+              font-size: 14px;
+              font-weight: bold;
+              color: #ffc108;
+            }
+          }
+
+          .helpful {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 14px;
+            }
+          }
+        }
+
+        @media (max-width: 600px) {
+  .review {
+    gap: 15px;
+    margin: 15px 0;
+
+    .user {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      .pp {
+        height: 40px;
+        width: 40px;
+      }
+
+      .info span {
+        font-size: 14px;
+      }
+
+      .country {
+        font-size: 12px;
+        gap: 6px;
+      }
+    }
+
+    .stars {
+      gap: 4px;
+
+      img {
+        height: 12px;
+        width: 12px;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .helpful {
+      gap: 8px;
+
+      img {
+        width: 12px;
+      }
+
+      span {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/* 💻 Tablet (601px – 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .review {
+    gap: 18px;
+    margin: 18px 0;
+
+    .user {
+      .pp {
+        height: 45px;
+        width: 45px;
+      }
+
+      .info span {
+        font-size: 15px;
+      }
+
+      .country {
+        font-size: 13px;
+      }
+    }
+
+    .stars span {
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .helpful span {
+      font-size: 14px;
+    }
+  }
+}
+
+/* 🖥️ Large Screens (above 1024px) */
+@media (min-width: 1025px) {
+  .review {
+    gap: 20px;
+    margin: 20px 0;
+
+    .user .pp {
+      height: 50px;
+      width: 50px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}

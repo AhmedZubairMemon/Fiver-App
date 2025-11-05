@@ -1,0 +1,164 @@
+.reviews {
+        margin-top: 50px;
+       
+.add{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .addForm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+
+    input{
+      padding: 20px;
+    }
+
+    select{
+      width: 200px;
+      padding: 20px;
+      align-self: flex-end;
+    }
+    button{
+      align-self: flex-end;
+      width: 100px;
+      border: none;
+      padding: 10px;
+      color: white;
+      background-color: #1dbf73;
+      cursor: pointer;
+    }
+  }
+}
+        hr {
+          height: 0;
+          border: 0.5px solid lightgray;
+          margin: 50px 0px;
+        }
+      }
+    
+      @media (max-width: 600px) {
+  .reviews {
+    margin-top: 30px;
+    padding: 0 10px;
+
+    h2 {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .add {
+      margin-top: 15px;
+      gap: 15px;
+
+      h3 {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .addForm {
+        gap: 15px;
+
+        input {
+          padding: 12px;
+          font-size: 14px;
+          width: 100%;
+        }
+
+        select {
+          width: 100%;
+          padding: 12px;
+          align-self: center;
+        }
+
+        button {
+          align-self: center;
+          width: 100%;
+          padding: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  }
+}
+
+/* 💻 Tablet (601px – 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .reviews {
+    margin-top: 40px;
+    padding: 0 20px;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    .add {
+      gap: 18px;
+
+      .addForm {
+        gap: 18px;
+
+        input {
+          padding: 15px;
+          font-size: 15px;
+        }
+
+        select {
+          width: 50%;
+          padding: 15px;
+        }
+
+        button {
+          width: 120px;
+          padding: 10px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    hr {
+      margin: 40px 0;
+    }
+  }
+}
+
+/* 🖥️ Large Screens (above 1024px) */
+@media (min-width: 1025px) {
+  .reviews {
+    margin-top: 50px;
+    padding: 0 30px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .add {
+      gap: 20px;
+
+      .addForm {
+        input {
+          padding: 20px;
+        }
+
+        select {
+          width: 200px;
+        }
+
+        button {
+          width: 100px;
+        }
+      }
+    }
+
+    hr {
+      margin: 50px 0;
+    }
+  }
+}

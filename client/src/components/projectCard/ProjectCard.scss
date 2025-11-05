@@ -1,0 +1,108 @@
+.projectCard {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgb(225, 225, 225);
+
+  img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .texts {
+      h2 {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .projectCard {
+    width: 90%;
+    height: auto;
+    margin: 10px auto;
+
+    img {
+      height: 60%;
+    }
+
+    .info {
+      gap: 10px;
+      padding: 10px;
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .texts {
+        h2 {
+          font-size: 13px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* 💻 Tablet (601px – 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .projectCard {
+    width: 45%;
+    height: auto;
+    margin: 15px auto;
+
+    .info {
+      gap: 15px;
+
+      img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .texts {
+        h2 {
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+/* 🖥️ Large Screens (above 1024px) */
+@media (min-width: 1025px) {
+  .projectCard {
+    width: 300px;
+    height: 300px;
+  }
+}
