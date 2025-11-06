@@ -1,6 +1,8 @@
 import React from "react";
 import "./Gig.scss";
-import { Slider } from "infinite-react-carousel/lib";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
@@ -14,34 +16,44 @@ function Gig() {
   const {
     isLoading,
     error,
-    data:gigData
+    data: gigData,
   } = useQuery({
     queryKey: ["gig"],
-    queryFn:async () => {
+    queryFn: async () => {
       const res = await newRequest.get(`/gigs/single/${id}`);
       return res.data;
     },
   });
-    const userId = gigData?.userId
 
-  // 🟢 Fetch User Data (only when userId exists)
+  const userId = gigData?.userId;
+
+  // 🟢 Fetch User Data
   const {
     isLoading: isLoadingUser,
     error: errorUser,
     data: dataUser,
   } = useQuery({
-    queryKey: ["user",userId],
+    queryKey: ["user", userId],
     queryFn: async () => {
-      // if (!gigData?.userId) throw new Error("User ID not found in gig data");
-     const res = await newRequest.get(`/users/${userId}`)
-         return res.data;
-       },
+      const res = await newRequest.get(`/users/${userId}`);
+      return res.data;
+    },
     enabled: !!gigData?.userId,
-    retry: false, // prevent repeated retries if user not found
+    retry: false,
   });
 
   if (isLoading) return <div>Loading gig...</div>;
   if (error) return <div>Something went wrong while loading gig!</div>;
+
+  // 🟢 Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+  };
 
   return (
     <div className="gig">
@@ -80,7 +92,7 @@ function Gig() {
 
           {/* 🟡 Gig Images */}
           {gigData?.images?.length ? (
-            <Slider slidesToShow={1} arrowsScroll={1} className="slider">
+            <Slider {...settings} className="slider">
               {gigData.images.map((img, i) => (
                 <img key={i} src={img || image} alt="Gig" />
               ))}
@@ -151,8 +163,8 @@ function Gig() {
               </div>
             ))}
           </div>
-          <Link to={`/pay/${id}`}> 
-          <button>Continue</button>
+          <Link to={`/pay/${id}`}>
+            <button>Continue</button>
           </Link>
         </div>
       </div>
