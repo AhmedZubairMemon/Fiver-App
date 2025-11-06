@@ -16,7 +16,13 @@ dotenv.config()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin:"https://fiver-app-6xat.vercel.app", credentials:true}))
+app.use(
+  cors({
+    origin: ["https://fiver-app-6xat.vercel.app"], // frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 const connect = async () =>{
     try{
