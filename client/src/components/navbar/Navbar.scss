@@ -1,3 +1,8 @@
+body {
+  overflow-x: hidden;
+}
+
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -8,6 +13,8 @@
   top: 0;
   z-index: 999;
   transition: 0.5s all ease;
+  width: 100%;
+  box-sizing: border-box;
 
   &.active {
     background-color: white;
@@ -21,7 +28,7 @@
   }
 
   .container {
-    width: 1400px;
+     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,6 +89,9 @@
           width: 200px;
           font-weight: 300;
           color: gray;
+          max-height: 300px; /* limit */
+    overflow-y: auto; /* scroll dropdown ke andar, page nahi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
       }
 
@@ -114,7 +124,7 @@
   }
 
   .menu {
-    width: 1400px;
+     width: 100%;
     padding: 10px 0px;
     display: flex;
     justify-content: space-between;
@@ -202,11 +212,22 @@
 @media (min-width: 1025px) {
   .navbar {
     .container {
-      width: 1400px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .menu {
-      width: 1400px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
     }
+    .navbar .container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
   }
 }
