@@ -14,8 +14,7 @@ import cors from "cors"
 const app = express()
 dotenv.config()
 
-app.use(express.json())
-app.use(cookieParser())
+
 app.use(
   cors({
     origin: ["https://fiver-app-6xat.vercel.app"], // frontend domain
@@ -23,6 +22,8 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json())
+app.use(cookieParser())
 
 const connect = async () =>{
     try{
