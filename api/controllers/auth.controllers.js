@@ -44,13 +44,16 @@ export const login = async (req, res, next)=>{
         },
         process.env.JWT_KEY 
     );
+
+    res.cookie("accessToken", token, {
+      httpOnly: true,
+      secure: true,      // deploy ke liye important
+      sameSite: "None",  // cross-domain cookies allow karega
+    });
         
-        const {password, ...info} = user._doc
-        res.cookie("accessToken",token,{
-            httpOnly:true
-        })
-        res.status(200).send(info)
-    } catch (error) {
+      const { password, ...info } = user._doc;
+    res.status(200).send(info);
+  }  catch (error) {
        next(error)
     }
 }

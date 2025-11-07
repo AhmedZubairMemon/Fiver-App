@@ -21,9 +21,15 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
+
 );
 app.use(express.json())
 app.use(cookieParser())
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 const connect = async () =>{
     try{
