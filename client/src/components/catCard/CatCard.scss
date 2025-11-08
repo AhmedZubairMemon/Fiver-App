@@ -2,36 +2,57 @@
   width: 252px;
   height: 344px;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
+  margin: 15px; /* cards ke beech proper space */
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    border-radius: 10px; /* image corners rounded */
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05); /* hover par thoda zoom effect */
+  }
+
+  .desc,
+  .title {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   }
 
   .desc {
-    font-weight: 300;
-    position: absolute;
     top: 15px;
-    left: 15px;
+    font-weight: 300;
+    font-size: 16px;
   }
 
   .title {
-    position: absolute;
-    top: 40px;
-    left: 15px;
-    font-size:24px;
+    bottom: 15px;
+    font-size: 24px;
     font-weight: 500;
   }
 }
 
+/* --- Responsive --- */
 @media (max-width: 1024px) {
   .catCard {
     width: 200px;
     height: 280px;
+    margin: 12px;
+
+    .desc {
+      font-size: 14px;
+    }
 
     .title {
       font-size: 20px;
@@ -43,6 +64,11 @@
   .catCard {
     width: 160px;
     height: 220px;
+    margin: 10px;
+
+    .desc {
+      font-size: 13px;
+    }
 
     .title {
       font-size: 18px;
@@ -54,13 +80,14 @@
   .catCard {
     width: 100%;
     height: 200px;
+    margin: 10px 0; /* top-bottom space on mobile */
+
+    .desc {
+      font-size: 12px;
+    }
 
     .title {
       font-size: 16px;
-    }
-
-    .desc {
-      font-size: 14px;
     }
   }
 }

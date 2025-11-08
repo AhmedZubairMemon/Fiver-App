@@ -17,7 +17,7 @@ dotenv.config()
 
 app.use(
   cors({
-    origin: ["https://fiver-app-6xat.vercel.app"], // frontend domain
+    origin: ["http://localhost:5173"], // frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -59,12 +59,9 @@ app.use((err, req, res, next)=>{
 })
 
 
-
-// if (process.env.NODE_ENV !== 'production') {
-//     const port = process.env.PORT || 8000;
-//     app.listen(port, () => {
-//         console.log(`Server is running on port ${port}`);
-//     });
-// }
+    const port = process.env.PORT || 8000;
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
 
 export default app;

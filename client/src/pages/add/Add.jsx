@@ -31,12 +31,18 @@ const Add = () => {
       return;
     }
     dispatch({
-      type: "ADD_FEATURE",
+      type: "ADD FEATURE",
       payload: featureValue,
     });
     toast.success("✅ Feature added successfully!");
     e.target[0].value = "";
   };
+const handleRemoveFeature = (feature) => {
+  dispatch({ type: "REMOVE_FEATURE", payload: feature });
+  toast.info(`❌ Feature "${feature}" removed!`);
+};
+
+  
 
   const handleUpload = async () => {
     if (!singleFile && files.length === 0) {
@@ -48,12 +54,7 @@ const Add = () => {
     try {
       const cover = singleFile ? await upload(singleFile) : null;
       const images = files.length
-        ? await Promise.all(
-            [...files].map(async (file) => {
-              const url = await upload(file);
-              return url;
-            })
-          )
+        ? await Promise.all([...files].map(async (file) => await upload(file)))
         : [];
 
       setUploading(false);
@@ -67,9 +68,7 @@ const Add = () => {
   };
 
   const mutation = useMutation({
-    mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig, { withCredentials: true });
-    },
+    mutationFn: (gig) => newRequest.post("/gigs", gig, { withCredentials: true }),
     onSuccess: () => {
       toast.success("🎉 Gig created successfully!");
       queryClient.invalidateQueries(["myGigs"]);
@@ -103,6 +102,7 @@ const Add = () => {
       <div className="container">
         <h1>Add New Gig</h1>
         <div className="sections">
+          {/* Left Info Section */}
           <div className="info">
             <label>Title</label>
             <input
@@ -113,7 +113,7 @@ const Add = () => {
             />
 
             <label>Category</label>
-            <select name="cat" id="cat" onChange={handleChange}>
+            <select name="cat" onChange={handleChange}>
               <option value="">Select category</option>
               <option value="design">Design</option>
               <option value="web">Web Development</option>
@@ -124,33 +124,25 @@ const Add = () => {
             <div className="images">
               <div className="imagesInputs">
                 <label>Cover Image</label>
-                <input
-                  type="file"
-                  onChange={(e) => setSingleFile(e.target.files[0])}
-                />
+                <input type="file" onChange={(e) => setSingleFile(e.target.files[0])} />
                 <label>Upload Images</label>
-                <input
-                  type="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                />
+                <input type="file" multiple onChange={(e) => setFiles(e.target.files)} />
               </div>
-              <button onClick={handleUpload}>
-                {uploading ? "Uploading..." : "Upload"}
-              </button>
+              <button onClick={handleUpload}>{uploading ? "Uploading..." : "Upload"}</button>
             </div>
 
             <label>Description</label>
             <textarea
               name="desc"
-              placeholder="Brief descriptions to introduce your service"
-              rows="16"
+              placeholder="Brief description to introduce your service"
+              rows="6"
               onChange={handleChange}
-            ></textarea>
+            />
 
-            <button onClick={handleSubmit}>Create</button>
+            <button onClick={handleSubmit}>Create Gig</button>
           </div>
 
+          {/* Right Details Section */}
           <div className="details">
             <label>Service Title</label>
             <input
@@ -164,10 +156,9 @@ const Add = () => {
             <textarea
               name="shortDesc"
               placeholder="Short description of your service"
-              cols="30"
-              rows="10"
+              rows="4"
               onChange={handleChange}
-            ></textarea>
+            />
 
             <label>Delivery Time (e.g. 3 days)</label>
             <input type="number" name="deliveryTime" onChange={handleChange} />
@@ -176,21 +167,21 @@ const Add = () => {
             <input type="number" name="revisionNumber" onChange={handleChange} />
 
             <label>Add Features</label>
-            <form className="add" onSubmit={handleFeature}>
-              <input type="text" placeholder="e.g. page design" />
+            <form className="addFeatureForm" onSubmit={handleFeature}>
+              <input type="text" placeholder="e.g. Page design" />
               <button type="submit">Add</button>
             </form>
 
             <div className="addedFeatures">
               {state?.features?.map((f) => (
-                <div className="item" key={f}>
+                <div className="featureItem" key={f}>
+                  <span>{f}</span>
                   <button
-                    className="X"
-                    onClick={() =>
-                      dispatch({ type: "REMOVE_FEATURE", payload: f })
-                    }
+                    className="removeFeature"
+                   
+          onClick={() => handleRemoveFeature(f)}
                   >
-                    {f} <span>X</span>
+                    X
                   </button>
                 </div>
               ))}
