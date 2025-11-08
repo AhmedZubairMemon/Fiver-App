@@ -41,7 +41,7 @@ const connect = async () =>{
         
     }
 }
-connect()
+connect();
 
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
