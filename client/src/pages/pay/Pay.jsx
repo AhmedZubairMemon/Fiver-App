@@ -21,6 +21,8 @@ const Pay = () => {
             try {
                 const res = await newRequest.post(`/orders/create-payment-intent/${id}`)
                 setClientSecret(res.data.clientSecret)
+                console.log(res.data);
+                
             } catch (error) {
                 console.log(error);
                 
