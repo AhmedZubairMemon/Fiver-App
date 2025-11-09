@@ -7,6 +7,8 @@
   cursor: pointer;
   overflow: hidden;
   margin: 15px; /* cards ke beech proper space */
+  gap: 20px; /* ✅ cards ke beech space */
+  padding: 30px;
 
   img {
     width: 100%;
@@ -28,6 +30,8 @@
     right: 15px;
     color: white;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    gap: 20px; /* ✅ cards ke beech space */
+  padding: 30px;
   }
 
   .desc {
