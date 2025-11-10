@@ -188,7 +188,10 @@ const handleRemoveFeature = (feature) => {
             </div>
 
             <label>Price</label>
-            <input type="number" name="price" onChange={handleChange} />
+            <input type="text" name="price" value={state.price ? `$${state.price}` : ""} onChange={(e) => {
+    const value = e.target.value.replace(/\$/g, ""); // $ remove karke number store karein
+    handleChange({ target: { name: "price", value } });
+  }}/>
           </div>
         </div>
       </div>

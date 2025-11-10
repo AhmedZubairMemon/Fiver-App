@@ -9,8 +9,8 @@ export const createMessage = async (req, res, next)=>{
     })
     try {
         const savedMessage = await newMessage.save()
-        await Conversation.findOneAndUpdate(
-            {id: req.body.conversationId},
+        await Conversation.findByIdAndUpdate(
+             req.body.conversationId,
             {
                 $set:{
                     readBySeller: req.isSeller,

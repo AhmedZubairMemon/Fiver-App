@@ -98,10 +98,10 @@ function Gig() {
               ))}
             </Slider>
           ) : (
-            <img src={image} alt="Default" className="default-image" />
+            <img src={gigData.cover} alt="Default" className="default-image" />
           )}
 
-          <h2>About This Gig</h2>
+          {/* <h2>About This Gig</h2> */}
           <p>{gigData?.desc}</p>
 
           {/* 🟡 Seller Info */}

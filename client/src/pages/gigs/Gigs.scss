@@ -5,7 +5,7 @@
 
   .container {
     width: 1400px;
-    padding: 30px 0px;
+    padding: 30px 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -106,6 +106,7 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 20px;
     }
   }
 }

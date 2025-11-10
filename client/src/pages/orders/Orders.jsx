@@ -23,14 +23,14 @@ const Orders = () => {
     const id = sellerId + buyerId
 
     try {
-      const res = await newRequest.get(`/conversations/single/${id}`)
-       navigate(`/message/${res.data.id}`)
+      const res = await newRequest.get(`/conversations/single/${sellerId}/${buyerId}`)
+       navigate(`/message/${res.data._id}`)
     } catch (error) {
       if(error.response.status === 404){
         const res = await newRequest.post(`/conversations/`,{
           to: currentUser.seller ? buyerId : sellerId,
         });
-        navigate(`/message/${res.data.id}`)
+        navigate(`/message/${res.data._id}`)
       }
     }
   }

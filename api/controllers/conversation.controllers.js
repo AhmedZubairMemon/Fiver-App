@@ -3,18 +3,16 @@ import createError from "../utils/createError.js";
 
 export const createConversation = async (req, res, next)=>{
     
-     const conversationId = 
-     req.userId > req.body.to
-    ? req.userId + req.body.to
-    : req.body.to + req.userId;
-
     
+
+    const conversationId = req.isSeller 
+  ? req.userId + req.body.to 
+  : req.body.to + req.userId;
     try {
         const existingConv = await Conversation.findOne({ id: conversationId });
         if (existingConv) return res.status(200).send(existingConv);
         const newConversation = new Conversation({
             id: conversationId,
-            // req.isSeller ? req.userId + req.body.to : req.body.to + req.userId,
             sellerId: req.isSeller ? req.userId : req.body.to,
             buyerId: req.isSeller ? req.body.to : req.userId,
             readBySeller: req.isSeller,
@@ -48,16 +46,20 @@ export const updateConversation = async(req, res, next)=>{
     }
 }
 
-export const getSingleConversation = async (req, res, next)=>{
-    try {
-        const conversation = await Conversation.findOne({id:req.params.id});
-        if(!conversation) return next(createError(404, "Not found!"));
-        res.status(200).send(conversation)
-    } catch (error) {
-        next(error)
-    }
-}
-
+export const getSingleConversation = async (req, res, next) => {
+  try {
+    const conversation = await Conversation.findOne({
+      $or: [
+        { sellerId: req.params.firstId, buyerId: req.params.secondId },
+        { sellerId: req.params.secondId, buyerId: req.params.firstId }
+      ]
+    });
+    if (!conversation) return next(createError(404, "Conversation not found"));
+    res.status(200).json(conversation);
+  } catch (err) {
+    next(err);
+  }
+};
 export const getConversations = async (req, res, next)=>{
     try {
         const conversations = await Conversation.find(
